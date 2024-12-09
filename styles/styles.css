@@ -1,0 +1,10 @@
+@import url(./search-bar-section.css);
+@import url(./current-weather-section.css);
+@import url(./five-day-forecast-section.css);
+
+body {
+    background-color: #4a3fea;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
