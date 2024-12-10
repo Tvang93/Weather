@@ -1,9 +1,12 @@
 // import {APIKEY} from "./environment.js"
 
-let cityName = '';
+
+let cityName = 'Stockton';
+
+
 
 function getCurrentWeatherData(){
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q={city name}&appid=${APIKEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKEY}`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
@@ -11,7 +14,7 @@ function getCurrentWeatherData(){
 }
 
 function get5DayData(){
-    fetch(`api.openweathermap.org/data/2.5/forecast?q={city name}&appid=${APIKEY}`)
+    fetch(`api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
