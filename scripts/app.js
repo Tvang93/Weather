@@ -28,14 +28,15 @@ setTimeout(() => {
         let lon = coords[1];
         console.log(getGeocodeAPI(lat, lon));
         let locationArr = getGeocodeAPI(lat, lon);
-        setTimeout(() => {
-            if (locationArr[0].length > 0){
-                console.log(locationArr[0].name)
-                // startUp(locationArr)
-            }else{
-                console.log("Coordinates are not yet available.");
-            }
-        }, 500)
+        console.log(locationArr[0])
+        // setTimeout(() => {
+        //     if (locationArr[0].length > 0){
+        //         console.log(locationArr[0].name)
+        //         // startUp(locationArr)
+        //     }else{
+        //         console.log("Coordinates are not yet available.");
+        //     }
+        // }, 500)
         
     } else {
         console.log("Coordinates are not yet available.");
