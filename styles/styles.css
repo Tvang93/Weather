@@ -3,6 +3,7 @@
 @import url(./five-day-forecast-section.css);
 
 body {
+    z-index: 0;
     background-color: #4a3fea;
     color: white;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif

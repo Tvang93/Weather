@@ -106,21 +106,6 @@ async function getCurrentAPIWithCoords(latitude, longitude) {
 //   return data;
 // }
 
-// function getCurrentWeatherData(){
-//     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKEY}`)
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data)
-//     })
-// }
-
-// function get5DayData(){
-//     fetch(`api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIKEY}`)
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data)
-//     })
-// }
 
 async function startUp(city) {
   localCurrentData = await getCurrentAPI(city);
@@ -138,10 +123,10 @@ searchField.addEventListener("click", function(){
 
 searchField.addEventListener("blur", function(){
     recentSearches.classList.add("inactive");
-    console.log(" i guess this works")
+    console.log("i guess this works")
 })
 
-searchField.addEventListener("keypress", function(e){
+searchField.addEventListener("keypress", function(){
     recentSearches.classList.add("inactive");
 })
 
@@ -153,5 +138,9 @@ searchBtn.addEventListener("click", function(){
   cityName = searchField.value;
   console.log(cityName);
 //   getGeocodeAPIWithCity(cityName, 1);
-
+  saveToLocalStorage(cityName);
 });
+
+
+
+fiveDay1.innerText = "hello"

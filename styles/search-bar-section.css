@@ -31,6 +31,12 @@
     padding-left: 16px;
 }
 
+#recentSearches {
+    position: absolute;
+    margin-top: 80;
+    background-color: black;
+}
+
 .inactive{
     display: none;
 }
