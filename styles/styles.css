@@ -8,3 +8,11 @@ body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+input {
+    width:400px;
+}
+
+input::placeholder {
+    font-size: 12px; /* Adjust the size */
+    color: gray; /* Optional: Change color */
+  }
