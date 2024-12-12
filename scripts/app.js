@@ -1,4 +1,5 @@
-import { APIKEY } from "./environment.js";
+import {APIKEY} from "./environment.js";
+import {saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage} from "./localStorage.js"
 
 const searchField = document.getElementById("searchField");
 const searchBtn = document.getElementById("searchBtn");
@@ -7,7 +8,7 @@ const currentCountry = document.getElementById("currentCountry");
 const currentTemp = document.getElementById("currentTemp");
 const recentSearches = document.getElementById("recentSearches")
 
-let cityName = "";
+let cityName = "Stockton,Ca,US";
 let localCurrentData = "";
 let local5DayData = "";
 let localGeocodeData = "";
@@ -50,13 +51,13 @@ let coords = [];
 //     }
 // }, 100); // Adjust the timeout as needed
 
-async function getGeocodeAPIWithCoords(latitude, longitude, limit) {
-  const promise = await fetch(
-    `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=${limit}&appid=${APIKEY}`
-  );
-  const data = await promise.json();
-  return data
-}
+// async function getGeocodeAPIWithCoords(latitude, longitude, limit) {
+//   const promise = await fetch(
+//     `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=${limit}&appid=${APIKEY}`
+//   );
+//   const data = await promise.json();
+//   return data
+// }
 
 async function getGeocodeAPIWithCity(city, limit) {
   const promise = await fetch(
@@ -108,12 +109,7 @@ async function getCurrentAPIWithCoords(latitude, longitude) {
 
 
 async function startUp(city) {
-  localCurrentData = await getCurrentAPI(city);
-  local5DayData = await get5DayAPI(city);
-  console.log(cityName);
-  console.log(localCurrentData);
-  console.log(local5DayData);
-  console.log(localCurrentData.main.temp);
+  getGeocodeAPIWithCity(city)
 }
 
 searchField.addEventListener("click", function(){

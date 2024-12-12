@@ -28,26 +28,83 @@
     </section>
 
     <section class="current-weather-section">
-        <div>
-            <div id="currentWeatherIconLocation"></div>
-            <p id="currentCity"></p>
-            <p id="currentCountry"></p>
-            <p id="currentTemp"></p>
+        <div class="d-flex flex-column justify-content-center">
+            <div>
+                <div>
+                    <p>sunrise</p>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div>
+                    <p id="currentSunriseTime">1 AM</p>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p>sunset</p>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div>
+                    <p id="currentSunsetTime">1 PM</p>
+                </div>
+            </div>
         </div>
-        <div></div>
-        <div></div>
+        <div class="d-flex flex-row">
+            <div>
+                <p id="currentCity">Stockotn</p>
+                <p id="currentCountry">US</p>
+                <div class="d-flex">
+                    <p id="currentTemp">45°</p>
+                    <div id="currentWeatherIconLocation">
+                        <img src="" alt="">
+                    </div>
+                    <p id="currentTime">1:00pm</p>
+                </div>
+            </div>
+            <div>
+                <div class="d-flex">
+                    <div>
+                        <p id="currentDayofWeek">Friday</p>
+                        <p id="currentDate">MM/DD</p>
+                    </div>
+                    <div class="d-flex align-items-start justify-content-end">
+                        <button id="favoritesStar">STAR</button>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <p id="currentHighLow">High/Low</p>
+                        <p id="currentWeatherCondition">Haze</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p id="currentPrecip">Precipitation:</p>
+            <p id="currentHumid">Humidity:</p>
+            <p id="currentWind">Wind:</p>
+        </div>
     </section>
 
     <section class="five-day-forecast-section">
         <div>
-            <div>
-                <div>
+            <div class="d-flex">
+                <div class="d-flex flex-column">
                     <h2>day</h2>
                     <p>date</p>
                 </div>
-                <img src="" alt="">
                 <div>
-                    <h2 id="fiveDay1">temp</h2>
+                    <img src="" alt="">
+                </div>
+                <div class="d-flex align-items-center">
+                    <h2 id="fiveDay1">High°</h2>
+                    <h2>Low°</h2>
                 </div>
             </div>
         </div>

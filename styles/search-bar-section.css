@@ -33,7 +33,7 @@
 
 #recentSearches {
     position: absolute;
-    margin-top: 80;
+    top: 210px;
     background-color: black;
 }
 

@@ -6,11 +6,11 @@ function saveToLocalStorage(search){
         searchArr.push(search);
     }
     
-    localStorage.setItem('Names', JSON.stringify(nameArr))
+    localStorage.setItem('SearchHistory', JSON.stringify(searchArr))
 }
 
 function getFromLocalStorage(){
-    let localStorageData = localStorage.getItem('Names');
+    let localStorageData = localStorage.getItem('SearchHistory');
     if(localStorageData == null){
         return [];
     }
@@ -29,4 +29,4 @@ function removeFromLocalStorage(search){
 
 }
 
-export { saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage}
+export {saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage}
