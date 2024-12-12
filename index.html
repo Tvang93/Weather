@@ -17,20 +17,25 @@
             <div id="favoritesBtn">
                 <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
             </div>
-            <input id="searchField" type="text" placeholder="City, State(if applicable), Country">
+            <div class="dropdown">
+                <input id="searchField" class="dropdown-toggle" type="text" data-bs-toggle="dropdown" aria-expanded="false" placeholder="City, State(if applicable), Country">
+                <ul id="recentSearches" class="dropdown-menu">
+                </ul>
+              </div>
+            <!-- <input id="searchField" data-bs-toggle="dropdown" type="text" placeholder="City, State(if applicable), Country"> -->
             <div id="searchBtn">
                 <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i>
             </div>
         </div>
-        <div id="recentSearches" class="inactive">
+        <!-- <div id="recentSearches" class="dropdown-menu">
             <p>Recent Searches</p>
-        </div>
+        </div> -->
     </section>
 
     <section class="current-weather-section">
         <div class="d-flex flex-column justify-content-center">
             <div>
-                <div>
+                <div class="d-flex">
                     <p>sunrise</p>
                     <div>
                         <img src="" alt="">
@@ -41,7 +46,7 @@
                 </div>
             </div>
             <div>
-                <div>
+                <div class="d-flex">
                     <p>sunset</p>
                     <div>
                         <img src="" alt="">
@@ -96,8 +101,60 @@
         <div>
             <div class="d-flex">
                 <div class="d-flex flex-column">
-                    <h2>day</h2>
-                    <p>date</p>
+                    <h2>day1</h2>
+                    <p>12/1</p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                </div>
+                <div class="d-flex align-items-center">
+                    <h2 id="fiveDay1">High°</h2>
+                    <h2>Low°</h2>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="d-flex flex-column">
+                    <h2>day2</h2>
+                    <p>12/2</p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                </div>
+                <div class="d-flex align-items-center">
+                    <h2 id="fiveDay1">High°</h2>
+                    <h2>Low°</h2>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="d-flex flex-column">
+                    <h2>day3</h2>
+                    <p>12/3</p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                </div>
+                <div class="d-flex align-items-center">
+                    <h2 id="fiveDay1">High°</h2>
+                    <h2>Low°</h2>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="d-flex flex-column">
+                    <h2>day4</h2>
+                    <p>12/4</p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                </div>
+                <div class="d-flex align-items-center">
+                    <h2 id="fiveDay1">High°</h2>
+                    <h2>Low°</h2>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="d-flex flex-column">
+                    <h2>day5</h2>
+                    <p>12/5</p>
                 </div>
                 <div>
                     <img src="" alt="">

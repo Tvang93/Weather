@@ -6,7 +6,13 @@ function saveToLocalStorage(search){
         searchArr.push(search);
     }
     
-    localStorage.setItem('SearchHistory', JSON.stringify(searchArr))
+    localStorage.setItem('SearchHistory', JSON.stringify(searchArr));
+
+    let localStorageData = getFromLocalStorage();
+    if(localStorageData.length > 4){
+        localStorageData.shift()
+        localStorage.setItem('SearchHistory', JSON.stringify(localStorageData));
+    }
 }
 
 function getFromLocalStorage(){
@@ -25,7 +31,7 @@ function removeFromLocalStorage(search){
 
     localStorageData.splice(nameIndex, 1);
 
-    localStorage.setItem('Names', JSON.stringify(localStorageData));
+    localStorage.setItem('SearchHistory', JSON.stringify(localStorageData));
 
 }
 

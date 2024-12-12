@@ -66,10 +66,15 @@ async function getGeocodeAPIWithCity(city, limit) {
   const data = await promise.json();
   if(data.length > 0){
         getCurrentAPIWithCoords(data[0].lat, data[0].lon);
-        console.log(data)
+        console.log(data);
         console.log(data[0].lat, data[0].lon);
+        if(data[0].state == undefined){
+          saveToLocalStorage(`${data[0].name}, ${data[0].country}`);
+        }else{
+          saveToLocalStorage(`${data[0].name}, ${data[0].state}, ${data[0].country}`);
+        }
     }else{
-        alert('No Valid City')
+        alert('No Valid City');
     }
 }
 
@@ -108,35 +113,65 @@ async function getCurrentAPIWithCoords(latitude, longitude) {
 // }
 
 
-async function startUp(city) {
-  getGeocodeAPIWithCity(city)
-}
+// startUp(cityName)
+// async function startUp(city) {
+//   if(getFromLocalStorage.length > 0){
+//     getGeocodeAPIWithCity(getFromLocalStorage()[getFromLocalStorage().length-1], 1);
+//   }else{
+//     getGeocodeAPIWithCity(city, 1);
+//   }
+// }
 
 searchField.addEventListener("click", function(){
-    console.log("field works")
-    recentSearches.classList.remove("inactive");
+    if(getFromLocalStorage().length == 0){
+      recentSearches.classList.add("inactive")
+    }else{
+      recentSearches.classList.remove("inactive")
+      createSearchHistory();
+    }
 })
 
-searchField.addEventListener("blur", function(){
-    recentSearches.classList.add("inactive");
-    console.log("i guess this works")
-})
 
-searchField.addEventListener("keypress", function(){
-    recentSearches.classList.add("inactive");
-})
+// searchField.addEventListener("blur", function(){
+//     recentSearches.classList.add("inactive");
+    
+// })
+
+// searchField.addEventListener("keypress", function(){
+//     recentSearches.classList.add("inactive");
+    
+// })
 
 // searchField.addEventListener("mouseout", function(){
 //     recentSearches.classList.add("inactive");
 // })
 
+// console.log(getFromLocalStorage()[getFromLocalStorage().length-1])
+
 searchBtn.addEventListener("click", function(){
   cityName = searchField.value;
-  console.log(cityName);
-//   getGeocodeAPIWithCity(cityName, 1);
-  saveToLocalStorage(cityName);
+  // getGeocodeAPIWithCity(cityName, 1);
+  saveToLocalStorage(cityName)
+  searchField.value = '';
 });
 
+function createSearchHistory(){
+  let previousSearches = getFromLocalStorage();
+  console.log(previousSearches);
+  let reversedSearches = previousSearches.reverse()
 
+
+  reversedSearches.map(search => {
+    let searches = document.createElement("p");
+    searches.innerText = search;
+    searches.classList = "text-white"
+    searches.addEventListener('click', function(){
+      cityName = searches.innerText
+      // getGeocodeAPIWithCity(cityName, 1);
+      console.log(cityName)
+    })
+    recentSearches.appendChild(searches);
+  })
+}
 
 fiveDay1.innerText = "hello"
