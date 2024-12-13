@@ -1,59 +1,69 @@
-function saveToSearchHistory(search){
+function saveToSearchHistory(search) {
+  let searchArr = getHistoryFromLocalStorage();
+  let searchIndex = searchArr.indexOf(search);
 
-    let searchArr = getHistoryFromLocalStorage();
+  if (!searchArr.includes(search)) {
+    searchArr.push(search);
+  } else {
+    searchArr.splice(searchIndex, 1);
+    searchArr.push(search);
+  }
 
-    if(!searchArr.includes(search)){
-        searchArr.push(search);
-    }
-    
-    localStorage.setItem('SearchHistory', JSON.stringify(searchArr));
+  localStorage.setItem("SearchHistory", JSON.stringify(searchArr));
 
-    let localStorageData = getHistoryFromLocalStorage();
-    if(localStorageData.length > 4){
-        localStorageData.shift()
-        localStorage.setItem('SearchHistory', JSON.stringify(localStorageData));
-    }
+  let localStorageData = getHistoryFromLocalStorage();
+  if (localStorageData.length > 4) {
+    localStorageData.shift();
+    localStorage.setItem("SearchHistory", JSON.stringify(localStorageData));
+  }
 }
 
-function saveToFavorites(city){
-    console.log("saved")
-    let cityArr = getFavoritesFromLocalStorage();
+function saveToFavorites(city) {
+  console.log("saved");
+  let cityArr = getFavoritesFromLocalStorage();
 
-    if(!cityArr.includes(city)){
-        cityArr.push(city);
-    }
-    
-    localStorage.setItem('Favorites', JSON.stringify(cityArr));
+  if (!cityArr.includes(city)) {
+    cityArr.push(city);
+  }
+
+  localStorage.setItem("Favorites", JSON.stringify(cityArr));
 }
 
-function getHistoryFromLocalStorage(){
-    let localStorageData = localStorage.getItem('SearchHistory');
-    if(localStorageData == null){
-        return [];
-    }
+function getHistoryFromLocalStorage() {
+  let localStorageData = localStorage.getItem("SearchHistory");
+  if (localStorageData == null) {
+    return [];
+  }
 
-    return JSON.parse(localStorageData);
+  return JSON.parse(localStorageData);
 }
 
-function getFavoritesFromLocalStorage(){
-    let localStorageData = localStorage.getItem('Favorites');
-    if(localStorageData == null){
-        return [];
-    }
+function getFavoritesFromLocalStorage() {
+  let localStorageData = localStorage.getItem("Favorites");
+  if (localStorageData == null) {
+    return [];
+  }
 
-    return JSON.parse(localStorageData);
+  return JSON.parse(localStorageData);
 }
 
-function removeFavorites(favorite){
-    console.log("remove")
-    let localStorageData = getFavoritesFromLocalStorage();
+function removeFavorites(favorite) {
+  console.log("remove");
+  let localStorageData = getFavoritesFromLocalStorage();
 
-    let favoritesIndex = localStorageData.indexOf(favorite);
+  let favoritesIndex = localStorageData.indexOf(favorite);
 
-    localStorageData.splice(favoritesIndex, 1);
+  localStorageData.splice(favoritesIndex, 1);
 
-    localStorage.setItem('Favorites', JSON.stringify(localStorageData));
-
+  localStorage.setItem("Favorites", JSON.stringify(localStorageData));
 }
 
-export {saveToSearchHistory, saveToFavorites, getHistoryFromLocalStorage, getFavoritesFromLocalStorage, removeFavorites}
+
+
+export {
+  saveToSearchHistory,
+  saveToFavorites,
+  getHistoryFromLocalStorage,
+  getFavoritesFromLocalStorage,
+  removeFavorites,
+};

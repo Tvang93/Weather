@@ -11,7 +11,8 @@
 .search-bar {
     display: flex;
     border-radius: 50px;
-    background-image: linear-gradient(to right,#5157C0, #EDEEFF);
+    background-image: linear-gradient(to right,rgb(81, 87, 192, 0.5), rgb(237, 238, 255, 0.5));
+    
     padding: 30px 43px;
 }
 
@@ -45,7 +46,9 @@
 .favorites-class{
     background-color: black;
     background-image: linear-gradient(to right,#5157C0, #EDEEFF);
-    color: white
+    color: white;
+    font-size: 48px;
+    padding-left: 28px;
 }
 
 .offcanvas {

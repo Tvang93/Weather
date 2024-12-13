@@ -26,6 +26,11 @@
     filter: invert(1);
 }
 
+#favoritesStar {
+    width: 48px;
+    filter: invert(1)
+}
+
 #currentWeatherIconLocation {
     width: 55px
 }

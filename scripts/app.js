@@ -7,6 +7,8 @@ import {
   removeFavorites,
 } from "./localStorage.js";
 
+const body = document.getElementById("body")
+
 const searchField = document.getElementById("searchField");
 const searchBtn = document.getElementById("searchBtn");
 const recentSearches = document.getElementById("recentSearches");
@@ -116,6 +118,8 @@ async function getCurrentAPIWithCoords(latitude, longitude) {
   } else {
     currentPrecip.innerText = `Precipitation: Not Given`;
   }
+
+  checkFavorites(`${currentCity.innerText},${currentCountry.innerText}`);
 };
 
 async function get5DayAPIWithCoords(latitude, longitude) {
@@ -130,7 +134,7 @@ async function get5DayAPIWithCoords(latitude, longitude) {
   fiveDay4Icon.src = `https://openweathermap.org/img/wn/${data.list[29].weather[0].icon}@2x.png`;
   fiveDay5Icon.src = `https://openweathermap.org/img/wn/${data.list[36].weather[0].icon}@2x.png`;
 
-  let highCounter1 = 0;
+  let highCounter1 = -1000;
   let lowCounter1 = 9999;
   for (let i = 0; i < 8; i++) {
     if (highCounter1 < data.list[i].main.temp_max) {
@@ -143,7 +147,7 @@ async function get5DayAPIWithCoords(latitude, longitude) {
   fiveDay1High.innerText = `${highCounter1}°`;
   fiveDay1Low.innerText = `${lowCounter1}°`;
 
-  let highCounter2 = 0;
+  let highCounter2 = -1000;
   let lowCounter2 = 9999;
   for (let i = 8; i < 16; i++) {
     if (highCounter2 < data.list[i].main.temp_max) {
@@ -156,7 +160,7 @@ async function get5DayAPIWithCoords(latitude, longitude) {
   fiveDay2High.innerText = `${highCounter2}°`;
   fiveDay2Low.innerText = `${lowCounter2}°`;
 
-  let highCounter3 = 0;
+  let highCounter3 = -1000;
   let lowCounter3 = 9999;
   for (let i = 16; i < 24; i++) {
     if (highCounter3 < data.list[i].main.temp_max) {
@@ -169,7 +173,7 @@ async function get5DayAPIWithCoords(latitude, longitude) {
   fiveDay3High.innerText = `${highCounter3}°`;
   fiveDay3Low.innerText = `${lowCounter3}°`;
 
-  let highCounter4 = 0;
+  let highCounter4 = -1000;
   let lowCounter4 = 9999;
   for (let i = 24; i < 32; i++) {
     if (highCounter4 < data.list[i].main.temp_max) {
@@ -182,7 +186,7 @@ async function get5DayAPIWithCoords(latitude, longitude) {
   fiveDay4High.innerText = `${highCounter4}°`;
   fiveDay4Low.innerText = `${lowCounter4}°`;
 
-  let highCounter5 = 0;
+  let highCounter5 = -1000;
   let lowCounter5 = 9999;
   for (let i = 32; i < 40; i++) {
     if (highCounter5 < data.list[i].main.temp_max) {
@@ -227,9 +231,11 @@ searchBtn.addEventListener("click", function () {
 favoritesStar.addEventListener("click", function () {
   if (savedFavorite) {
     removeFavorites(`${currentCity.innerText},${currentCountry.innerText}`);
+    favoritesStar.src = "./assets/images/star.png"
     savedFavorite = false;
   } else {
     saveToFavorites(`${currentCity.innerText},${currentCountry.innerText}`);
+    favoritesStar.src = "./assets/images/filled_star.png"
     savedFavorite = true;
     console.log(savedFavorite);
   }
@@ -248,7 +254,7 @@ function createSearchHistory() {
   reversedSearches.map((search) => {
     let searches = document.createElement("h5");
     searches.innerText = search;
-    searches.classList = "favorites-class";
+    searches.classList = "text-white font-32";
     searches.addEventListener("click", function () {
       cityName = searches.innerText;
       getGeocodeAPIWithCity(cityName, 1);
@@ -265,7 +271,7 @@ function createFavoritesTab() {
   favoritesList.map((favorite) => {
     let favoritesName = document.createElement("p");
     favoritesName.innerText = favorite;
-    favoritesName.classList = "text-white font-32";
+    favoritesName.classList = "favorites-class";
     favoritesName.addEventListener("click", function () {
       cityName = favoritesName.innerText;
       getGeocodeAPIWithCity(cityName, 1);
@@ -274,7 +280,7 @@ function createFavoritesTab() {
     favoritesSelection.appendChild(favoritesName);
   });
 };
-
+console.log(31%31)
 function getCurrentClock(today, sunriseTime, sunsetTime) {
   const now = new Date(today * 1000);
   let day = now.getDate();
@@ -324,5 +330,20 @@ function getUpdatingClock() {
   } else {
     currentTime.innerText = `${hours}:${minutes} AM`;
   }
+  if(hours > 18 || hours < 6){
+    body.classList = "night-mode"
+  }else{
+    body.classList = ""
+  }
 };
+getUpdatingClock();
 setInterval(getUpdatingClock, 60000);
+
+function checkFavorites(city) {
+  let localStorageData = localStorage.getItem("Favorites");
+  if(localStorageData.includes(city)){
+    favoritesStar.src = "./assets/images/filled_star.png"
+  }else{
+    favoritesStar.src = "./assets/images/star.png"
+  }
+}

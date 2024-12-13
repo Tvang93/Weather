@@ -8,13 +8,17 @@
 }
 
 body {
+    background-image: linear-gradient(315deg,#D9B66E , #689DED);
     background-size: cover;
-    background-image: linear-gradient(135deg, #4a3fea, #D9B66E);
     background-repeat: no-repeat;
     color: white;
     font-family:"Roboto-flex", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-
 }
+
+.night-mode{
+    background-image: url(../assets/images/arnold-dogelis-Cl0OS9498pU-unsplash.jpg);
+}
+
 
 p {
     margin: 0;
@@ -62,4 +66,8 @@ input::placeholder {
 
 .font-36 {
     font-size: 36px;
+}
+
+.font-48 {
+    font-size: 48px;
 }
