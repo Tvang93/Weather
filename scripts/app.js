@@ -10,6 +10,8 @@ import {
 const searchField = document.getElementById("searchField");
 const searchBtn = document.getElementById("searchBtn");
 const recentSearches = document.getElementById("recentSearches");
+const favoritesBtn = document.getElementById("favoritesBtn")
+const favoritesSelection = document.getElementById("favoritesSelection")
 
 const currentCity = document.getElementById("currentCity");
 const currentCountry = document.getElementById("currentCountry");
@@ -88,7 +90,7 @@ async function getGeocodeAPIWithCity(city, limit) {
   } else {
     alert("No Valid City");
   }
-}
+};
 
 async function getCurrentAPIWithCoords(latitude, longitude) {
   const promise = await fetch(
@@ -114,7 +116,7 @@ async function getCurrentAPIWithCoords(latitude, longitude) {
   } else {
     currentPrecip.innerText = `Precipitation: Not Given`;
   }
-}
+};
 
 async function get5DayAPIWithCoords(latitude, longitude) {
   const promise = await fetch(
@@ -192,9 +194,9 @@ async function get5DayAPIWithCoords(latitude, longitude) {
   }
   fiveDay5High.innerText = `${highCounter5}°`;
   fiveDay5Low.innerText = `${lowCounter5}°`;
-}
+};
 
-// startUp(cityName)
+// startUp(cityName);
 
 async function startUp(city) {
   if (getHistoryFromLocalStorage().length > 0) {
@@ -205,7 +207,7 @@ async function startUp(city) {
   } else {
     getGeocodeAPIWithCity(city, 1);
   }
-}
+};
 
 searchField.addEventListener("click", function () {
   if (getHistoryFromLocalStorage().length == 0) {
@@ -233,6 +235,10 @@ favoritesStar.addEventListener("click", function () {
   }
 });
 
+favoritesBtn.addEventListener('click', function(){
+  createFavoritesTab()
+});
+
 function createSearchHistory() {
   recentSearches.innerHTML = "";
   let previousSearches = getHistoryFromLocalStorage();
@@ -240,9 +246,9 @@ function createSearchHistory() {
   let reversedSearches = previousSearches.reverse();
 
   reversedSearches.map((search) => {
-    let searches = document.createElement("p");
+    let searches = document.createElement("h5");
     searches.innerText = search;
-    searches.classList = "text-white font-32";
+    searches.classList = "favorites-class";
     searches.addEventListener("click", function () {
       cityName = searches.innerText;
       getGeocodeAPIWithCity(cityName, 1);
@@ -250,7 +256,24 @@ function createSearchHistory() {
     });
     recentSearches.appendChild(searches);
   });
-}
+};
+
+function createFavoritesTab() {
+  favoritesSelection.innerHTML = "";
+  let favoritesList = getFavoritesFromLocalStorage();
+  
+  favoritesList.map((favorite) => {
+    let favoritesName = document.createElement("p");
+    favoritesName.innerText = favorite;
+    favoritesName.classList = "text-white font-32";
+    favoritesName.addEventListener("click", function () {
+      cityName = favoritesName.innerText;
+      getGeocodeAPIWithCity(cityName, 1);
+      console.log(cityName);
+    });
+    favoritesSelection.appendChild(favoritesName);
+  });
+};
 
 function getCurrentClock(today, sunriseTime, sunsetTime) {
   const now = new Date(today * 1000);
@@ -290,7 +313,7 @@ function getCurrentClock(today, sunriseTime, sunsetTime) {
   let sunsetHours = sunset.getHours() - 12;
   let sunsetMinutes = sunset.getMinutes();
   currentSunsetTime.innerText = `${sunsetHours}:${sunsetMinutes} PM`;
-}
+};
 
 function getUpdatingClock() {
   const now = new Date();
@@ -301,5 +324,5 @@ function getUpdatingClock() {
   } else {
     currentTime.innerText = `${hours}:${minutes} AM`;
   }
-}
+};
 setInterval(getUpdatingClock, 60000);

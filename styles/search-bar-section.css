@@ -40,3 +40,15 @@
 .inactive{
     display: none !important;
 }
+
+
+.favorites-class{
+    background-color: black;
+    background-image: linear-gradient(to right,#5157C0, #EDEEFF);
+    color: white
+}
+
+.offcanvas {
+    background-color: rgb(81, 87, 192, 0.5) !important;
+    border: 0;
+}

@@ -14,18 +14,33 @@
 
     <section class="search-bar-section">
         <div class="search-bar">
+            
             <div id="favoritesBtn">
-                <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
+                <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></i>
             </div>
+
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-white" id="offcanvasScrollingLabel">Favorites</h5>
+                </div>
+                <div id="favoritesSelection" class="offcanvas-body">
+                </div>
+            </div>
+
             <div class="dropdown">
-                <input id="searchField" class="dropdown-toggle" type="text" data-bs-toggle="dropdown" aria-expanded="false" placeholder="City, State(if applicable), Country">
+                <input id="searchField" class="dropdown-toggle" type="text" data-bs-toggle="dropdown"
+                    aria-expanded="false" placeholder="City, State(if applicable), Country">
                 <ul id="recentSearches" class="dropdown-menu">
                     <p id=""></p>
                 </ul>
-              </div>
+            </div>
+
             <div id="searchBtn">
                 <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i>
             </div>
+
         </div>
 
     </section>
@@ -62,7 +77,8 @@
                 <div class="d-flex">
                     <p class="font-55" id="currentTemp">45°</p>
                     <div class="img-box">
-                        <img id="currentWeatherIconLocation" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon">
+                        <img id="currentWeatherIconLocation" src="https://openweathermap.org/img/wn/10d@2x.png"
+                            alt="weather icon">
                     </div>
                     <p class="font-32 align-self-center" id="currentTime">1:00pm</p>
                 </div>
@@ -70,7 +86,9 @@
             <div class="d-flex flex-column justify-content-evenly">
                 <div class="d-flex justify-content-between ps-3">
                     <div>
-                        <i><p class="font-50" id="currentDayofWeek">Someday</p></i>
+                        <i>
+                            <p class="font-50" id="currentDayofWeek">Someday</p>
+                        </i>
                         <p class="font-32" id="currentDate">MM/DD</p>
                     </div>
                     <div class="d-flex align-items-start justify-content-end">
@@ -79,7 +97,8 @@
                 </div>
                 <div class="d-flex">
                     <div class="align-self-center">
-                        <img id="currentWeatherIconLocation2" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon">
+                        <img id="currentWeatherIconLocation2" src="https://openweathermap.org/img/wn/10d@2x.png"
+                            alt="weather icon">
                     </div>
                     <div>
                         <p class="font-36" id="currentHighLow">High/Low</p>
@@ -103,7 +122,8 @@
                     <p class="font-32" id="fiveDay1Date">12/1</p>
                 </div>
                 <div class="five-day-icon">
-                    <img class="five-day-img" id="fiveDay1Icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon">
+                    <img class="five-day-img" id="fiveDay1Icon" src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt="weather icon">
                 </div>
                 <div class="d-flex align-items-center">
                     <p class="font-64" id="fiveDay1High">65°</p>
@@ -116,7 +136,8 @@
                     <p class="font-32" id="fiveDay2Date">12/1</p>
                 </div>
                 <div class="five-day-icon">
-                    <img class="five-day-img" id="fiveDay2Icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon">
+                    <img class="five-day-img" id="fiveDay2Icon" src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt="weather icon">
                 </div>
                 <div class="d-flex align-items-center">
                     <p class="font-64" id="fiveDay2High">65°</p>
@@ -129,7 +150,8 @@
                     <p class="font-32" id="fiveDay3Date">12/1</p>
                 </div>
                 <div class="five-day-icon">
-                    <img class="five-day-img" id="fiveDay3Icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon">
+                    <img class="five-day-img" id="fiveDay3Icon" src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt="weather icon">
                 </div>
                 <div class="d-flex align-items-center">
                     <p class="font-64" id="fiveDay3High">65°</p>
@@ -142,7 +164,8 @@
                     <p class="font-32" id="fiveDay4Date">12/1</p>
                 </div>
                 <div class="five-day-icon">
-                    <img class="five-day-img" id="fiveDay4Icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon">
+                    <img class="five-day-img" id="fiveDay4Icon" src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt="weather icon">
                 </div>
                 <div class="d-flex align-items-center">
                     <p class="font-64" id="fiveDay4High">65°</p>
@@ -155,7 +178,8 @@
                     <p class="font-32" id="fiveDay5Date">12/1</p>
                 </div>
                 <div class="five-day-icon">
-                    <img class="five-day-img" id="fiveDay5Icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon">
+                    <img class="five-day-img" id="fiveDay5Icon" src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt="weather icon">
                 </div>
                 <div class="d-flex align-items-center">
                     <p class="font-64" id="fiveDay5High">65°</p>
@@ -167,8 +191,10 @@
     </section>
 
 
-    <a href="https://www.flaticon.com/free-icons/sunset" title="sunset icons">Sunset icons created by Icon Hubs - Flaticon</a>
-    <a href="https://www.flaticon.com/free-icons/sunset" title="sunset icons">Sunset icons created by Icon Hubs - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/sunset" title="sunset icons">Sunset icons created by Icon Hubs -
+        Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/sunset" title="sunset icons">Sunset icons created by Icon Hubs -
+        Flaticon</a>
 
 
 
