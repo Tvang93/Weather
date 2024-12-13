@@ -3,3 +3,7 @@
     display: flex;
     justify-content: center;
 }
+
+.box4 {
+    background-image: linear-gradient(to right,#5157C0, #EDEEFF);
+}
