@@ -177,22 +177,22 @@ function getCurrentClock(today, sunriseTime, sunsetTime){
     "Friday",
     "Saturday",
   ];
-  currentDate.innerText = `${(month+1)} / ${day}`;
+  currentDate.innerText = `${(month + 1)} / ${day}`;
 
-  fiveDay1Date.innerText = `${(month+1)} / ${(day+1)%31+1}`;
-  fiveDay2Date.innerText = `${(month+1)} / ${(day+2)%31+1}`;
-  fiveDay3Date.innerText = `${(month+1)} / ${(day+3)%31+1}`;
-  fiveDay4Date.innerText = `${(month+1)} / ${(day+4)%31+1}`;
-  fiveDay5Date.innerText = `${(month+1)} / ${(day+5)%31+1}`;
+  fiveDay1Date.innerText = `${(month + 1)} / ${(day + 1) % 31}`;
+  fiveDay2Date.innerText = `${(month + 1)} / ${(day + 2) % 31}`;
+  fiveDay3Date.innerText = `${(month + 1)} / ${(day + 3) % 31}`;
+  fiveDay4Date.innerText = `${(month + 1)} / ${(day + 4) % 31}`;
+  fiveDay5Date.innerText = `${(month + 1)} / ${(day + 5) % 31}`;
   
 
   
   currentDayofWeek.innerText = `${dayOfWeek[dayOfWeekValue]}`;
-  fiveDay1Day.innerText = `${dayOfWeek[(today + 1) % 7]}`;
-  fiveDay2Day.innerText = `${dayOfWeek[(today + 2) % 7]}`;
-  fiveDay3Day.innerText = `${dayOfWeek[(today + 3) % 7]}`;
-  fiveDay4Day.innerText = `${dayOfWeek[(today + 4) % 7]}`;
-  fiveDay5Day.innerText = `${dayOfWeek[(today + 5) % 7]}`;
+  fiveDay1Day.innerText = `${dayOfWeek[(dayOfWeekValue + 1) % 7]}`;
+  fiveDay2Day.innerText = `${dayOfWeek[(dayOfWeekValue + 2) % 7]}`;
+  fiveDay3Day.innerText = `${dayOfWeek[(dayOfWeekValue + 3) % 7]}`;
+  fiveDay4Day.innerText = `${dayOfWeek[(dayOfWeekValue + 4) % 7]}`;
+  fiveDay5Day.innerText = `${dayOfWeek[(dayOfWeekValue + 5) % 7]}`;
 
   const sunrise = new Date(sunriseTime*1000);
   let sunriseHours = sunrise.getHours();
