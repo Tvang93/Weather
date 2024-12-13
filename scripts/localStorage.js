@@ -1,6 +1,6 @@
-function saveToLocalStorage(search){
+function saveToSearchHistory(search){
 
-    let searchArr = getFromLocalStorage();
+    let searchArr = getHistoryFromLocalStorage();
 
     if(!searchArr.includes(search)){
         searchArr.push(search);
@@ -8,14 +8,25 @@ function saveToLocalStorage(search){
     
     localStorage.setItem('SearchHistory', JSON.stringify(searchArr));
 
-    let localStorageData = getFromLocalStorage();
+    let localStorageData = getHistoryFromLocalStorage();
     if(localStorageData.length > 4){
         localStorageData.shift()
         localStorage.setItem('SearchHistory', JSON.stringify(localStorageData));
     }
 }
 
-function getFromLocalStorage(){
+function saveToFavorites(city){
+    console.log("saved")
+    let cityArr = getFavoritesFromLocalStorage();
+
+    if(!cityArr.includes(city)){
+        cityArr.push(city);
+    }
+    
+    localStorage.setItem('Favorites', JSON.stringify(cityArr));
+}
+
+function getHistoryFromLocalStorage(){
     let localStorageData = localStorage.getItem('SearchHistory');
     if(localStorageData == null){
         return [];
@@ -24,15 +35,25 @@ function getFromLocalStorage(){
     return JSON.parse(localStorageData);
 }
 
-function removeFromLocalStorage(search){
-    let localStorageData = getFromLocalStorage();
+function getFavoritesFromLocalStorage(){
+    let localStorageData = localStorage.getItem('Favorites');
+    if(localStorageData == null){
+        return [];
+    }
 
-    let nameIndex = localStorageData.indexOf(search);
+    return JSON.parse(localStorageData);
+}
 
-    localStorageData.splice(nameIndex, 1);
+function removeFavorites(favorite){
+    console.log("remove")
+    let localStorageData = getFavoritesFromLocalStorage();
 
-    localStorage.setItem('SearchHistory', JSON.stringify(localStorageData));
+    let favoritesIndex = localStorageData.indexOf(favorite);
+
+    localStorageData.splice(favoritesIndex, 1);
+
+    localStorage.setItem('Favorites', JSON.stringify(localStorageData));
 
 }
 
-export {saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage}
+export {saveToSearchHistory, saveToFavorites, getHistoryFromLocalStorage, getFavoritesFromLocalStorage, removeFavorites}
