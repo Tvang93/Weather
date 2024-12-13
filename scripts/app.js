@@ -114,13 +114,14 @@ async function getCurrentAPIWithCoords(latitude, longitude) {
 
 
 // startUp(cityName)
-// async function startUp(city) {
-//   if(getFromLocalStorage.length > 0){
-//     getGeocodeAPIWithCity(getFromLocalStorage()[getFromLocalStorage().length-1], 1);
-//   }else{
-//     getGeocodeAPIWithCity(city, 1);
-//   }
-// }
+
+async function startUp(city) {
+  if(getFromLocalStorage.length > 0){
+    getGeocodeAPIWithCity(getFromLocalStorage()[getFromLocalStorage().length-1], 1);
+  }else{
+    getGeocodeAPIWithCity(city, 1);
+  }
+}
 
 searchField.addEventListener("click", function(){
     if(getFromLocalStorage().length == 0){
@@ -156,6 +157,7 @@ searchBtn.addEventListener("click", function(){
 });
 
 function createSearchHistory(){
+  recentSearches.innerHTML = "";
   let previousSearches = getFromLocalStorage();
   console.log(previousSearches);
   let reversedSearches = previousSearches.reverse()
