@@ -33,7 +33,8 @@
 #recentSearches {
     position: absolute;
     top: 210px;
-    background-color: black;
+    background-color: rgb(23, 24, 41, 0.8);
+    border-radius: 0;
 }
 
 .inactive{

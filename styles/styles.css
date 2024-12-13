@@ -2,13 +2,26 @@
 @import url(./current-weather-section.css);
 @import url(./five-day-forecast-section.css);
 
+@font-face {
+    font-family: "Roboto-flex";
+    src: url(../assets/fonts/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf);
+}
+
 body {
-    z-index: 0;
+    background-size: cover;
     background-image: linear-gradient(135deg, #4a3fea, #D9B66E);
     background-repeat: no-repeat;
     color: white;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family:"Roboto-flex", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
 }
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 100%;
+}
+
 
 input {
     width:400px;
@@ -17,4 +30,36 @@ input {
 input::placeholder {
     font-size: 12px; /* Adjust the size */
     color: gray; /* Optional: Change color */
-  }
+}
+
+.font-32 {
+    font-size: 32px;
+}
+
+.font-64 {
+    font-size: 64px;
+}
+
+.font-30 {
+    font-size: 30px;
+}
+
+.font-40 {
+    font-size: 40px;
+}
+
+.font-55 {
+    font-size: 55px;
+}
+
+.font-50 {
+    font-size: 50px;
+}
+
+.font-96 {
+    font-size: 96px;
+}
+
+.font-36 {
+    font-size: 36px;
+}

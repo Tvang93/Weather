@@ -7,12 +7,29 @@
 
 .box1 {
     background-image: linear-gradient(to right,#5157C0, #EDEEFF);
+    border-radius: 15px;
+    padding: 0 31px;
 }
 
 .box2 {
     background-image: linear-gradient(to right,#5157C0, #EDEEFF);
+    border-radius: 15px;
 }
 
 .box3 {
     background-image: linear-gradient(to right,#5157C0, #EDEEFF);
+    border-radius: 15px;
+}
+
+.sun-icon {
+    width: 40px;
+    filter: invert(1);
+}
+
+#currentWeatherIconLocation {
+    width: 55px
+}
+
+#currentWeatherIconLocation2 {
+    width: 55px
 }

@@ -1,9 +1,21 @@
 .five-day-forecast-section {
     margin-top: 56px;
+    margin-bottom: 272px;
     display: flex;
     justify-content: center;
+    
 }
 
 .box4 {
     background-image: linear-gradient(to right,#5157C0, #EDEEFF);
+    padding: 112px 150px 96px 170px;
+    border-radius: 15px;
+}
+
+.box4 div {
+    width: 950px;
+}
+
+.five-day-img {
+    width: 122px
 }

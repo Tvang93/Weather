@@ -23,78 +23,75 @@
                     <p id=""></p>
                 </ul>
               </div>
-            <!-- <input id="searchField" data-bs-toggle="dropdown" type="text" placeholder="City, State(if applicable), Country"> -->
             <div id="searchBtn">
                 <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i>
             </div>
         </div>
-        <!-- <div id="recentSearches" class="dropdown-menu">
-            <p>Recent Searches</p>
-        </div> -->
+
     </section>
 
     <section class="current-weather-section">
-        <div class="d-flex flex-column justify-content-center box1">
+        <div class="d-flex flex-column justify-content-evenly box1">
             <div>
                 <div class="d-flex">
-                    <p>sunrise</p>
-                    <div>
-                        <img src="" alt="">
+                    <p class="font-36">Sunrise</p>
+                    <div class="ms-2">
+                        <img class="sun-icon" src="./assets/images/sunrise.png" alt="sunrise icon">
                     </div>
                 </div>
                 <div>
-                    <p id="currentSunriseTime">1 AM</p>
+                    <p class="font-32 text-center" id="currentSunriseTime">1 AM</p>
                 </div>
             </div>
             <div>
                 <div class="d-flex">
-                    <p>sunset</p>
-                    <div>
-                        <img src="" alt="">
+                    <p class="font-36">Sunset</p>
+                    <div class="ms-3">
+                        <img class="sun-icon" src="./assets/images/sunset.png" alt="sunset icon">
                     </div>
                 </div>
                 <div>
-                    <p id="currentSunsetTime">1 PM</p>
+                    <p class="font-32 text-center" id="currentSunsetTime">1 PM</p>
                 </div>
             </div>
         </div>
         <div class="d-flex flex-row box2">
             <div>
-                <p id="currentCity">Stockotn</p>
-                <p id="currentCountry">US</p>
+                <p class="font-96" id="currentCity">Stockton</p>
+                <p class="font-40" id="currentCountry">US</p>
                 <div class="d-flex">
-                    <p id="currentTemp">45°</p>
-                    <div id="currentWeatherIconLocation">
-                        <img src="" alt="">
+                    <p class="font-55" id="currentTemp">45°</p>
+                    <div class="img-box">
+                        <img id="currentWeatherIconLocation" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon">
                     </div>
-                    <p id="currentTime">1:00pm</p>
+                    <p class="font-32 align-self-center" id="currentTime">1:00pm</p>
                 </div>
             </div>
-            <div>
-                <div class="d-flex">
+            <div class="d-flex flex-column justify-content-evenly">
+                <div class="d-flex justify-content-between ps-3">
                     <div>
-                        <p id="currentDayofWeek">Friday</p>
-                        <p id="currentDate">MM/DD</p>
+                        <i><p class="font-50" id="currentDayofWeek">Someday</p></i>
+                        <p class="font-32" id="currentDate">MM/DD</p>
                     </div>
                     <div class="d-flex align-items-start justify-content-end">
                         <button id="favoritesStar">STAR</button>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <img src="" alt="">
+                <div class="d-flex">
+                    <div class="align-self-center">
+                        <img id="currentWeatherIconLocation2" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon">
                     </div>
                     <div>
-                        <p id="currentHighLow">High/Low</p>
-                        <p id="currentWeatherCondition">Haze</p>
+                        <p class="font-36" id="currentHighLow">High/Low</p>
+                        <p class="font-36" id="currentWeatherCondition">Haze</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="box3">
-            <p id="currentPrecip">Precipitation:</p>
-            <p id="currentHumid">Humidity:</p>
-            <p id="currentWind">Wind:</p>
+        <div class="d-flex flex-column justify-content-evenly align-items-center px-2 box3">
+            <p class="font-32" id="currentPrecip">Precipitation:</p>
+            <p class="font-32" id="currentHumid">Humidity:</p>
+            <p class="font-32" id="currentWind">Wind:</p>
         </div>
     </section>
 
@@ -102,71 +99,26 @@
         <div class="box4">
             <div class="d-flex">
                 <div class="d-flex flex-column">
-                    <h2>day1</h2>
-                    <p>12/1</p>
+                    <p class="font-64" id="fiveDay1Day">Monday</p>
+                    <p class="font-32" id="fiveDay1Date">12/1</p>
                 </div>
                 <div>
-                    <img src="" alt="">
+                    <img class="five-day-img" id="fiveDay1Icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon">
                 </div>
                 <div class="d-flex align-items-center">
-                    <h2 id="fiveDay1">High°</h2>
-                    <h2>Low°</h2>
+                    <p class="font-64" id="fiveDay1High">High°</p>
+                    <p class="font-64 ms-4" id="fiveDay1Low">Low°</p>
                 </div>
             </div>
-            <div class="d-flex">
-                <div class="d-flex flex-column">
-                    <h2>day2</h2>
-                    <p>12/2</p>
-                </div>
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div class="d-flex align-items-center">
-                    <h2 id="fiveDay1">High°</h2>
-                    <h2>Low°</h2>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="d-flex flex-column">
-                    <h2>day3</h2>
-                    <p>12/3</p>
-                </div>
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div class="d-flex align-items-center">
-                    <h2 id="fiveDay1">High°</h2>
-                    <h2>Low°</h2>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="d-flex flex-column">
-                    <h2>day4</h2>
-                    <p>12/4</p>
-                </div>
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div class="d-flex align-items-center">
-                    <h2 id="fiveDay1">High°</h2>
-                    <h2>Low°</h2>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="d-flex flex-column">
-                    <h2>day5</h2>
-                    <p>12/5</p>
-                </div>
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div class="d-flex align-items-center">
-                    <h2 id="fiveDay1">High°</h2>
-                    <h2>Low°</h2>
-                </div>
-            </div>
+
         </div>
     </section>
+
+
+    <a href="https://www.flaticon.com/free-icons/sunset" title="sunset icons">Sunset icons created by Icon Hubs - Flaticon</a>
+    <a href="https://www.flaticon.com/free-icons/sunset" title="sunset icons">Sunset icons created by Icon Hubs - Flaticon</a>
+
+
 
     <script src="https://kit.fontawesome.com/7f646c57fd.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
