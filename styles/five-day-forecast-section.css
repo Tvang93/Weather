@@ -12,10 +12,14 @@
     border-radius: 15px;
 }
 
-.box4 div {
+.box4-content {
     width: 950px;
 }
 
 .five-day-img {
     width: 122px
+}
+
+.five-day-icon {
+    margin: 0 5px 0 115px;
 }

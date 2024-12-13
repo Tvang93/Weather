@@ -1,6 +1,5 @@
 import {APIKEY} from "./environment.js";
 import {saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage} from "./localStorage.js"
-import { get5DayClock } from "./clock.js";
 
 const searchField = document.getElementById("searchField");
 const searchBtn = document.getElementById("searchBtn");
@@ -99,9 +98,9 @@ async function getCurrentAPIWithCoords(latitude, longitude) {
   getCurrentClock(data.dt, data.sys.sunrise, data.sys.sunset);
 
   if(!(data.rain == undefined)){
-    currentPrecip.innerText = `Precipitation: ${data.rain}%`;
+    currentPrecip.innerText = `Precipitation: ${data.rain["1h"]}%`;
   }else{
-    currentPrecip.innerText = `Precipitation: `;
+    currentPrecip.innerText = `Precipitation: Not Given`;
   }
 
 
@@ -114,9 +113,6 @@ async function get5DayAPIWithCoords(latitude, longitude) {
   const data = await promise.json();
 
 
-
-  // fiveDay1Day = ;
-  // fiveDay1Date = ;
   // fiveDay1Icon = ;
   // fiveDay1High = ;
   // fiveDay1Low = ;
@@ -125,7 +121,7 @@ async function get5DayAPIWithCoords(latitude, longitude) {
 // startUp(cityName)
 
 async function startUp(city) {
-  if(getFromLocalStorage.length > 0){
+  if(getFromLocalStorage().length > 0){
     getGeocodeAPIWithCity(getFromLocalStorage()[getFromLocalStorage().length-1], 1);
   }else{
     getGeocodeAPIWithCity(city, 1);
@@ -143,8 +139,7 @@ searchField.addEventListener("click", function(){
 
 searchBtn.addEventListener("click", function(){
   cityName = searchField.value;
-  // getGeocodeAPIWithCity(cityName, 1);
-  // saveToLocalStorage(cityName)
+  getGeocodeAPIWithCity(cityName, 1);
   searchField.value = '';
 });
 
@@ -153,7 +148,6 @@ function createSearchHistory(){
   let previousSearches = getFromLocalStorage();
   console.log(previousSearches);
   let reversedSearches = previousSearches.reverse()
-
 
   reversedSearches.map(search => {
     let searches = document.createElement("p");
@@ -174,32 +168,31 @@ function getCurrentClock(today, sunriseTime, sunsetTime){
   let day = now.getDate();
   let month = now.getMonth();
   let dayOfWeekValue = now.getDay();
-  let dayOfWeek = ''
-  switch(dayOfWeekValue){
-    case 0:
-      dayOfWeek = 'Sunday';
-      break;
-    case 1:
-      dayOfWeek = 'Monday';
-      break;
-    case 2:
-      dayOfWeek = 'Tuesday';
-      break;
-    case 3:
-      dayOfWeek = 'Wednesday';
-      break;
-    case 4:
-      dayOfWeek = 'Thursday';
-      break;
-    case 5:
-      dayOfWeek = 'Friday';
-      break;
-    case 6:
-      dayOfWeek = 'Saturday';
-      break;
-  }
-  currentDate.innerText = `${month+1} / ${day}`
-  currentDayofWeek.innerText = `${dayOfWeek}`
+  const dayOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  currentDate.innerText = `${(month+1)} / ${day}`;
+
+  fiveDay1Date.innerText = `${(month+1)} / ${(day+1)%31+1}`;
+  fiveDay2Date.innerText = `${(month+1)} / ${(day+2)%31+1}`;
+  fiveDay3Date.innerText = `${(month+1)} / ${(day+3)%31+1}`;
+  fiveDay4Date.innerText = `${(month+1)} / ${(day+4)%31+1}`;
+  fiveDay5Date.innerText = `${(month+1)} / ${(day+5)%31+1}`;
+  
+
+  
+  currentDayofWeek.innerText = `${dayOfWeek[dayOfWeekValue]}`;
+  fiveDay1Day.innerText = `${dayOfWeek[(today + 1) % 7]}`;
+  fiveDay2Day.innerText = `${dayOfWeek[(today + 2) % 7]}`;
+  fiveDay3Day.innerText = `${dayOfWeek[(today + 3) % 7]}`;
+  fiveDay4Day.innerText = `${dayOfWeek[(today + 4) % 7]}`;
+  fiveDay5Day.innerText = `${dayOfWeek[(today + 5) % 7]}`;
 
   const sunrise = new Date(sunriseTime*1000);
   let sunriseHours = sunrise.getHours();
@@ -211,3 +204,16 @@ function getCurrentClock(today, sunriseTime, sunsetTime){
   let sunsetMinutes = sunset.getMinutes();
   currentSunsetTime.innerText = `${sunsetHours}:${sunsetMinutes} PM`
 }
+
+
+function getUpdatingClock() {
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  if(hours > 12){
+    currentTime.innerText = `${hours-12}:${minutes} PM`
+  }else{
+    currentTime.innerText = `${hours}:${minutes} AM`
+  }
+}
+setInterval(getUpdatingClock, 60000);
