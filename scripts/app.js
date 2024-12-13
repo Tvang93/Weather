@@ -112,10 +112,80 @@ async function get5DayAPIWithCoords(latitude, longitude) {
   );
   const data = await promise.json();
 
+  fiveDay1Icon.src = `https://openweathermap.org/img/wn/${data.list[5].weather[0].icon}@2x.png`
+  fiveDay2Icon.src = `https://openweathermap.org/img/wn/${data.list[13].weather[0].icon}@2x.png`
+  fiveDay3Icon.src = `https://openweathermap.org/img/wn/${data.list[21].weather[0].icon}@2x.png`
+  fiveDay4Icon.src = `https://openweathermap.org/img/wn/${data.list[29].weather[0].icon}@2x.png`
+  fiveDay5Icon.src = `https://openweathermap.org/img/wn/${data.list[36].weather[0].icon}@2x.png`
 
-  // fiveDay1Icon = ;
-  // fiveDay1High = ;
-  // fiveDay1Low = ;
+  let highCounter1 = 0;
+  let lowCounter1 = 9999;
+  for(let i = 0; i < 8; i++){
+    if(highCounter1 < data.list[i].main.temp_max){
+      highCounter1 = Math.round(data.list[i].main.temp_max)
+    }
+    if(lowCounter1 > data.list[i].main.temp_min){
+      lowCounter1 = Math.round(data.list[i].main.temp_min)
+    }
+  }
+  fiveDay1High.innerText = `${highCounter1}°`;
+  fiveDay1Low.innerText = `${lowCounter1}°`;
+
+
+  let highCounter2 = 0;
+  let lowCounter2 = 9999;
+  for(let i = 8; i < 16; i++){
+    if(highCounter2 < data.list[i].main.temp_max){
+      highCounter2 = Math.round(data.list[i].main.temp_max)
+    }
+    if(lowCounter2 > data.list[i].main.temp_min){
+      lowCounter2 = Math.round(data.list[i].main.temp_min)
+    }
+  }
+  fiveDay2High.innerText = `${highCounter2}°`;
+  fiveDay2Low.innerText = `${lowCounter2}°`;
+
+
+  let highCounter3 = 0;
+  let lowCounter3 = 9999;
+  for(let i = 16; i < 24; i++){
+    if(highCounter3 < data.list[i].main.temp_max){
+      highCounter3 = Math.round(data.list[i].main.temp_max)
+    }
+    if(lowCounter3 > data.list[i].main.temp_min){
+      lowCounter3 = Math.round(data.list[i].main.temp_min)
+    }
+  }
+  fiveDay3High.innerText = `${highCounter3}°`;
+  fiveDay3Low.innerText = `${lowCounter3}°`;
+
+
+  let highCounter4 = 0;
+  let lowCounter4 = 9999;
+  for(let i = 24; i < 32; i++){
+    if(highCounter4 < data.list[i].main.temp_max){
+      highCounter4 = Math.round(data.list[i].main.temp_max)
+    }
+    if(lowCounter4 > data.list[i].main.temp_min){
+      lowCounter4 = Math.round(data.list[i].main.temp_min)
+    }
+  }
+  fiveDay4High.innerText = `${highCounter4}°`;
+  fiveDay4Low.innerText = `${lowCounter4}°`;
+
+
+  let highCounter5 = 0;
+  let lowCounter5 = 9999;
+  for(let i = 32; i < 40; i++){
+    if(highCounter5 < data.list[i].main.temp_max){
+      highCounter5 = Math.round(data.list[i].main.temp_max)
+    }
+    if(lowCounter5 > data.list[i].main.temp_min){
+      lowCounter5 = Math.round(data.list[i].main.temp_min)
+    }
+  }
+  fiveDay5High.innerText = `${highCounter5}°`;
+  fiveDay5Low.innerText = `${lowCounter5}°`;
 }
 
 // startUp(cityName)
@@ -185,8 +255,6 @@ function getCurrentClock(today, sunriseTime, sunsetTime){
   fiveDay4Date.innerText = `${(month + 1)} / ${(day + 4) % 31}`;
   fiveDay5Date.innerText = `${(month + 1)} / ${(day + 5) % 31}`;
   
-
-  
   currentDayofWeek.innerText = `${dayOfWeek[dayOfWeekValue]}`;
   fiveDay1Day.innerText = `${dayOfWeek[(dayOfWeekValue + 1) % 7]}`;
   fiveDay2Day.innerText = `${dayOfWeek[(dayOfWeekValue + 2) % 7]}`;
@@ -217,3 +285,4 @@ function getUpdatingClock() {
   }
 }
 setInterval(getUpdatingClock, 60000);
+
