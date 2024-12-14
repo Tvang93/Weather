@@ -200,7 +200,7 @@ async function get5DayAPIWithCoords(latitude, longitude) {
   fiveDay5Low.innerText = `${lowCounter5}°`;
 };
 
-startUp(cityName);
+// startUp(cityName);
 
 async function startUp(city) {
   if (getHistoryFromLocalStorage().length > 0) {
