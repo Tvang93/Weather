@@ -19,5 +19,5 @@ Brief Description:
 
 Figma: https://www.figma.com/design/lpN19mWwLgQjjE8Pampwea/Weather-App?node-id=0-1&t=TP7PdY9fzeUzZ9Oa-1
 
-Peer: 
-Review: 
+Peer: David Monterrosa
+Review: Looks relatively accurate to the client's figma. Some of the gradients are off. Everything functions as expected. There are some spacing issues. Consider setting max-widths or more padding or margin space to the current weather row, so that it lines up better with your forecast data. Search history functions as expected. NOt sure if the night mode is activated based on current local time or time for the city that is searched. If based on local time, this works. Otherwise consider making edits.
